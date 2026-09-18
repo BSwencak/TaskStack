@@ -16,6 +16,14 @@ public class Note {
         this.category = category;
     }
 
+    public Note() {
+        this.title = "title";
+        this.dateCreated = "dateCreated";
+        this.dateLastEdited = "dateLastEdited";
+        this.attachedTask = "attachedTask";
+        this.category = "category";
+    }
+
     //Getters
     public String getTitle() {return title;}
     public String getDateCreated() {return dateCreated;}

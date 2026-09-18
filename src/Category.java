@@ -12,6 +12,12 @@ public class Category {
         this.color = color;
     }
 
+    public Category() {
+        this.title = "title";
+        this.subtitle = "subtitle";
+        this.color = "color";
+    }
+
     //Getters
     public String getTitle() {return title;}
     public String getSubtitle() {return subtitle;}

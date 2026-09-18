@@ -16,6 +16,14 @@ public class Calendar {
         this.category = category;
     }
 
+    public Calendar() {
+        this.currentDay = "currentDay";
+        this.currentMonth = "currentMonth";
+        this.currentYear = "currentYear";
+        this.viewMode = "viewMode";
+        this.category = "category";
+    }
+
     //Getters
     public String getCurrentDay() {return currentDay;}
     public String getCurrentMonth() {return currentMonth;}

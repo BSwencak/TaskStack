@@ -10,6 +10,11 @@ public class Layout {
         this.modeType = modeType;
     }
 
+    public Layout() {
+        this.modeTitle = "modeTitle";
+        this.modeType = "modeType";
+    }
+
     //Getters
     public String getModeTitle() {return modeTitle;}
     public String getModeType() {return modeType;}

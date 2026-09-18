@@ -19,6 +19,15 @@ public class Task {
         this.category = category;
         this.notes = notes;
     }
+    public Task() {
+        this.title = "title";
+        this.subtitle = "subtitle";
+        this.description = "description";
+        this.dueDate = "dueDate";
+        this.priority = "priority";
+        this.category = "category";
+        this.notes = "notes";
+    }
 
     //Getters
     public String getTitle() {return title;}
