@@ -1,3 +1,4 @@
+import Layout.Layout;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,7 +38,7 @@ class LayoutTest {
         Layout testLayoutToString= new Layout();
         testLayoutToString.setModeTitle("New Mode Title");
         testLayoutToString.setModeType("New Mode Type");
-        String expected = "Layout {Mode Title: 'New Mode Title' , Mode Type: 'New Mode Type'}";
+        String expected = "Layout.Layout {Mode Title: 'New Mode Title' , Mode Type: 'New Mode Type'}";
         assertEquals(expected, testLayoutToString.toString());
     }
 }

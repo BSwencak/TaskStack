@@ -1,4 +1,4 @@
-public class Calendar {
+public class Calendar implements Printable {
 
     //Attributes
     private String currentDay;
@@ -6,8 +6,9 @@ public class Calendar {
     private String currentYear;
     private String viewMode;
     private String category;
+    private String banner;
 
-    //Constructor
+    //Constructors
     public Calendar(String currentDay, String currentMonth, String currentYear, String viewMode, String category) {
         this.currentDay = currentDay;
         this.currentMonth = currentMonth;
@@ -44,4 +45,14 @@ public class Calendar {
         return "Calendar {Current Day : '" + currentDay + "' , Current Month: '" + currentMonth + "' , Current Year: " + currentYear + "' , View Mode: '" + viewMode + "' , Category: '" + category + "'}";
 
     }
+
+    public void printSetup(){
+        banner = "------------------------------------------------ Calendar ------------------------------------------------";
+    }
+
+    public void print(){
+        System.out.println(banner);
+        System.out.println(this.toString());
+    }
+
 }

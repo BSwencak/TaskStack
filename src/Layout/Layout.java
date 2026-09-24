@@ -1,3 +1,5 @@
+package Layout;
+
 public class Layout {
 
     //Attributes
@@ -15,6 +17,8 @@ public class Layout {
         this.modeType = "modeType";
     }
 
+    public void display(){}
+
     //Getters
     public String getModeTitle() {return modeTitle;}
     public String getModeType() {return modeType;}
@@ -26,6 +30,6 @@ public class Layout {
     //To String
     @Override
     public String toString() {
-        return "Layout {Mode Title: '" + modeTitle + "' , Mode Type: '" + modeType + "'}";
+        return "Layout {Mode Title: '" + modeTitle + "' , Mode Type: '" + modeType+"'";
     }
 }

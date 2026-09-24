@@ -1,4 +1,4 @@
-public class Task {
+public class Task implements Printable{
 
     //Attributes
     private String title;
@@ -8,8 +8,9 @@ public class Task {
     private String priority;
     private String category;
     private String notes;
+    private String banner;
 
-    //Constructor
+    //Constructors
     public Task(String title, String subtitle, String description, String dueDate, String priority, String category, String notes) {
         this.title = title;
         this.subtitle = subtitle;
@@ -53,5 +54,14 @@ public class Task {
         return "Task {Title: '" + title + "' , Subtitle: '" + subtitle + "' , Description: '" + description +
                 "' , Due Date: '" + dueDate + "' , Priority: '" + priority + "' , Category: '" + category + "' , Notes: '" + notes + "'}";
 
+    }
+
+    public void printSetup(){
+        banner = "------------------------------------------------- Task -------------------------------------------------";
+    }
+
+    public void print(){
+        System.out.println(banner);
+        System.out.println(this.toString());
     }
 }
