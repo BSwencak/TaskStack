@@ -1,3 +1,4 @@
+import Model.Category;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -51,7 +52,7 @@ class CategoryTest {
         testCategoryToString.setTitle("New Title");
         testCategoryToString.setSubtitle("New Subtitle");
         testCategoryToString.setColor("Purple");
-        String expected = "Category {Title: 'New Title' , Subtitle: 'New Subtitle' , Color: 'Purple'}";
+        String expected = "Model.Category {Title: 'New Title' , Subtitle: 'New Subtitle' , Color: 'Purple'}";
         assertEquals(expected, testCategoryToString.toString());
     }
 }

@@ -1,3 +1,5 @@
+package Model;
+
 public class Category {
 
     //Attributes
@@ -31,6 +33,6 @@ public class Category {
     //To String
     @Override
     public String toString() {
-        return "Category {Title: '" + title + "' , Subtitle: '" + subtitle + "' , Color: '" + color + "'}";
+        return "Model.Category {Title: '" + title + "' , Subtitle: '" + subtitle + "' , Color: '" + color + "'}";
     }
 }

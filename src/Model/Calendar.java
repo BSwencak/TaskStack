@@ -1,3 +1,5 @@
+package Model;
+
 public class Calendar implements Printable {
 
     //Attributes
@@ -42,12 +44,12 @@ public class Calendar implements Printable {
     //To String
     @Override
     public String toString() {
-        return "Calendar {Current Day : '" + currentDay + "' , Current Month: '" + currentMonth + "' , Current Year: " + currentYear + "' , View Mode: '" + viewMode + "' , Category: '" + category + "'}";
+        return "Model.Calendar {Current Day : '" + currentDay + "' , Current Month: '" + currentMonth + "' , Current Year: " + currentYear + "' , View Mode: '" + viewMode + "' , Model.Category: '" + category + "'}";
 
     }
 
     public void printSetup(){
-        banner = "------------------------------------------------ Calendar ------------------------------------------------";
+        banner = "------------------------------------------------ Model.Calendar ------------------------------------------------";
     }
 
     public void print(){

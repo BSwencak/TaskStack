@@ -1,3 +1,5 @@
+package Model;
+
 public class Note {
 
     //Attributes
@@ -41,6 +43,6 @@ public class Note {
     //To String
     @Override
     public String toString() {
-        return "Note {Title: '" + title + "' , Date Created: '" + dateCreated + "' , Date Last Edited: '" + dateLastEdited + "' , Attached Task: '" + attachedTask + "' , Category: '" + category + "'}";
+        return "Model.Note {Title: '" + title + "' , Date Created: '" + dateCreated + "' , Date Last Edited: '" + dateLastEdited + "' , Attached Model.Task: '" + attachedTask + "' , Model.Category: '" + category + "'}";
     }
 }

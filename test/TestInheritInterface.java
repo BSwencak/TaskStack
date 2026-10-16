@@ -1,4 +1,7 @@
 import Layout.*;
+import Model.Calendar;
+import Model.Printable;
+import Model.Task;
 
 import java.util.ArrayList;
 

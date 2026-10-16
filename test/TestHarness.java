@@ -1,3 +1,6 @@
+import Model.Calendar;
+import Model.Task;
+
 public class TestHarness {
 
     public static void main(String[] args){
@@ -6,7 +9,7 @@ public class TestHarness {
     }
 
     public static void testTaskClass(){
-        System.out.println("Testing Task Class:");
+        System.out.println("Testing Model.Task Class:");
         Task taskCheckOne = new Task();
 
         if(taskCheckOne != null){
@@ -19,7 +22,7 @@ public class TestHarness {
             System.out.println(taskCheckOne.getNotes());
         }
         else
-            System.out.println("There was an error creating Task");
+            System.out.println("There was an error creating Model.Task");
         taskCheckOne.setTitle("Math Homework");
         taskCheckOne.setSubtitle("Complete problems 1-12");
         taskCheckOne.setDescription("Calculus Work");
@@ -33,7 +36,7 @@ public class TestHarness {
 
 
     public static void testCalendarClass(){
-        System.out.println("\nTesting Calendar Class:");
+        System.out.println("\nTesting Model.Calendar Class:");
         Calendar CalendarCheckOne = new Calendar();
 
         if(CalendarCheckOne != null){
@@ -44,7 +47,7 @@ public class TestHarness {
             System.out.println(CalendarCheckOne.getCategory());
         }
         else
-            System.out.println("There was an error creating Task");
+            System.out.println("There was an error creating Model.Task");
         CalendarCheckOne.setCurrentDay("15");
         CalendarCheckOne.setCurrentMonth("September");
         CalendarCheckOne.setCurrentYear("2026");

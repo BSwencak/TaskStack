@@ -1,3 +1,4 @@
+import Model.Note;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -82,7 +83,7 @@ class NoteTest {
         testNoteToString.setDateLastEdited("September 25, 2026");
         testNoteToString.setAttachedTask("Math Homework");
         testNoteToString.setCategory("Calculus 100");
-        String expected = "Note {Title: 'New Title' , Date Created: 'September 21, 2026' , Date Last Edited: 'September 25, 2026' , Attached Task: 'Math Homework' , Category: 'Calculus 100'}";
+        String expected = "Model.Note {Title: 'New Title' , Date Created: 'September 21, 2026' , Date Last Edited: 'September 25, 2026' , Attached Model.Task: 'Math Homework' , Model.Category: 'Calculus 100'}";
         assertEquals(expected, testNoteToString.toString());
 
     }

@@ -1,3 +1,5 @@
+package Model;
+
 public class Task implements Printable{
 
     //Attributes
@@ -51,13 +53,13 @@ public class Task implements Printable{
     //To String
     @Override
     public String toString() {
-        return "Task {Title: '" + title + "' , Subtitle: '" + subtitle + "' , Description: '" + description +
-                "' , Due Date: '" + dueDate + "' , Priority: '" + priority + "' , Category: '" + category + "' , Notes: '" + notes + "'}";
+        return "Model.Task {Title: '" + title + "' , Subtitle: '" + subtitle + "' , Description: '" + description +
+                "' , Due Date: '" + dueDate + "' , Priority: '" + priority + "' , Model.Category: '" + category + "' , Notes: '" + notes + "'}";
 
     }
 
     public void printSetup(){
-        banner = "------------------------------------------------- Task -------------------------------------------------";
+        banner = "------------------------------------------------- Model.Task -------------------------------------------------";
     }
 
     public void print(){
