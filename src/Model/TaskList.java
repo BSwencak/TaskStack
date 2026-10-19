@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class TaskList {
     private Task task;
-
-    public ArrayList<Task> taskList;
+    public ArrayList<Task> taskList = new ArrayList<>();
 
     public ArrayList<Task> getTaskList() {
         return taskList;
@@ -23,16 +22,18 @@ public class TaskList {
 
     public void createTaskList(){
         for (int i=1; i<=5; i++){
-            task = new Task("Name", "Subtitle", "Desc", "Due", "Prio","Cat","Notes");
+            task = new Task("Math "+i, " Subtitle", "Desc", "Due", "Prio","Cat","Notes");
             taskList.add(task);
-            task = new Task("Name2", "Subtitle2", "Desc2", "Due2", "Prio2","Cat2","Notes2");
+        }
+        for (int i=1; i<=5; i++){
+            task = new Task("Science "+i, " Subtitle", "Desc", "Due", "Prio","Cat","Notes");
             taskList.add(task);
         }
     }
-
     public void printTaskList(){
         for (Task taskList : taskList){
             System.out.println(taskList);
         }
     }
+
 }
