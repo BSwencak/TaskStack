@@ -12,13 +12,15 @@ public class TaskController implements ActionListener {
     private TaskList taskList;
     private TaskUI taskUI;
     private int currentTask;
-    public TaskController(){
+
+    public TaskController() {
         taskList = new TaskList();
         taskUI = new TaskUI(this);;
         addALButtons();
         taskUI.setVisible(true);
     }
-    public void addALButtons(){
+
+    public void addALButtons() {
         taskUI.nextButton.addActionListener(this);
         taskUI.exitButton.addActionListener(this);
         taskUI.previousButton.addActionListener(this);

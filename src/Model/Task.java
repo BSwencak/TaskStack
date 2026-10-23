@@ -23,6 +23,7 @@ public class Task implements Printable{
         this.notes = notes;
     }
     public Task() {
+        this("title", "subtitle", "description", "dueDate", "priority", "category", "notes");
         this.title = "title";
         this.subtitle = "subtitle";
         this.description = "description";
@@ -65,5 +66,8 @@ public class Task implements Printable{
     public void print(){
         System.out.println(banner);
         System.out.println(this.toString());
+    }
+
+    public Object get() {
     }
 }

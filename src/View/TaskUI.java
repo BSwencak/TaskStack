@@ -10,7 +10,7 @@ import java.awt.*;
 import java.util.Locale;
 
 public class TaskUI extends JFrame {
-    private TaskController taskController;
+    private final TaskController taskController;
     private ArrayList<Task> taskList;
     private int currentTask = 0;
     private Task task;
