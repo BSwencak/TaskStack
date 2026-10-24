@@ -11,12 +11,14 @@ public class TaskController implements ActionListener {
     private Task task;
     private TaskList taskList;
     private TaskUI taskUI;
+    private TaskListUI taskListUI;
     private TaskTableModel taskTableModel;
-    private int currentTask;
+    private int currentTaskNum;
 
     public TaskController() {
         taskList = new TaskList();
-        taskUI = new TaskUI(this);;
+        taskListUI = new TaskListUI(this);
+        taskUI = new TaskUI(this);
         addALButtons();
         taskUI.setVisible(true);
         taskTableModel = new TaskTableModel(taskList.getTaskList());
@@ -40,24 +42,24 @@ public class TaskController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object obj = e.getSource();
         if (obj == taskUI.nextButton){
-            currentTask = taskUI.getCurrentTask();
-            if (currentTask==taskList.getTaskList().size()-1){
-                currentTask = 0;
+            currentTaskNum = taskUI.getCurrentTask();
+            if (currentTaskNum ==taskList.getTaskList().size()-1){
+                currentTaskNum = 0;
             }else{
-                currentTask++;
+                currentTaskNum++;
             }
-            taskUI.setCurrentTask(currentTask);
-            taskUI.parseTask(taskList.getTaskList().get(currentTask));
+            taskUI.setCurrentTask(currentTaskNum);
+            taskUI.parseTask(taskList.getTaskList().get(currentTaskNum));
         }
         if (obj == taskUI.previousButton){
-            currentTask = taskUI.getCurrentTask();
-            if (currentTask==0){
-                currentTask = taskList.getTaskList().size()-1;
+            currentTaskNum = taskUI.getCurrentTask();
+            if (currentTaskNum ==0){
+                currentTaskNum = taskList.getTaskList().size()-1;
             }else{
-                currentTask--;
+                currentTaskNum--;
             }
-            taskUI.setCurrentTask(currentTask);
-            taskUI.parseTask(taskList.getTaskList().get(currentTask));
+            taskUI.setCurrentTask(currentTaskNum);
+            taskUI.parseTask(taskList.getTaskList().get(currentTaskNum));
         }
         if (obj == taskUI.exitButton){
             System.exit(0);
@@ -88,14 +90,24 @@ public class TaskController implements ActionListener {
             Task newTask = new Task();
             newTask.setTitle("'Enter New Task Title Here'");
             taskList.getTaskList().add(newTask);
-            currentTask=taskList.getTaskList().size()-1;
-            taskUI.setCurrentTask(currentTask);
-            taskUI.parseTask(taskList.getTaskList().get(currentTask));
+            currentTaskNum =taskList.getTaskList().size()-1;
+            taskUI.setCurrentTask(currentTaskNum);
+            taskUI.parseTask(taskList.getTaskList().get(currentTaskNum));
         }
     }
 
     public TaskTableModel getTaskTableModel(){
         return taskTableModel;
+    }
+
+    public void getTaskDetailUI(int selectedRow){
+        taskUI = new TaskUI(this,selectedRow);
+        taskListUI.setVisible(false);
+        taskUI.setVisible(true);
+    }
+
+    public Task getTask(int index){
+        return taskList.getTaskList().get(index);
     }
 
 }

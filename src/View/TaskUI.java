@@ -2,6 +2,7 @@ package View;
 
 import Controller.TaskController;
 import Model.Task;
+import View.TaskListUI;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
@@ -11,15 +12,32 @@ import java.util.Locale;
 
 public class TaskUI extends JFrame {
     private final TaskController taskController;
+    private int currentSelectedRow;
     private ArrayList<Task> taskList;
-    private int currentTask = 0;
+    private int currentTaskNum = 0;
+    private Task currentTask;
     private Task task;
     private JPanel taskPanel;
+
+    public void parseTask(){
+        taskTitle.setText(currentTask.getTitle());
+        taskSubtitle.setText(currentTask.getSubtitle());
+        taskDueDate.setText(currentTask.getDueDate());
+    }
+
+    public TaskUI(TaskController newTaskController, int selectedRow){
+        taskController = newTaskController;
+        currentSelectedRow = selectedRow;
+        currentTask = taskController.getTask(selectedRow);
+
+        initComponents();
+        parseTask();
+    }
 
     public TaskUI(TaskController taskController) {
         this.taskController = taskController;
         taskList = taskController.getTaskList();
-        task = taskList.get(currentTask);
+        task = taskList.get(currentTaskNum);
         parseTask(task);
         setContentPane(taskPanel);
         setTitle("Task Stack");
@@ -30,11 +48,11 @@ public class TaskUI extends JFrame {
     }
 
     public int getCurrentTask() {
-        return currentTask;
+        return currentTaskNum;
     }
 
     public void setCurrentTask(int currentTask) {
-        this.currentTask = currentTask;
+        this.currentTaskNum = currentTask;
     }
 
     public void parseTask(Task task) {
