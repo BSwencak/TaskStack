@@ -11,6 +11,7 @@ public class TaskController implements ActionListener {
     private Task task;
     private TaskList taskList;
     private TaskUI taskUI;
+    private TaskTableModel taskTableModel;
     private int currentTask;
 
     public TaskController() {
@@ -18,6 +19,7 @@ public class TaskController implements ActionListener {
         taskUI = new TaskUI(this);;
         addALButtons();
         taskUI.setVisible(true);
+        taskTableModel = new TaskTableModel(taskList.getTaskList());
     }
 
     public void addALButtons() {
@@ -90,6 +92,10 @@ public class TaskController implements ActionListener {
             taskUI.setCurrentTask(currentTask);
             taskUI.parseTask(taskList.getTaskList().get(currentTask));
         }
+    }
+
+    public TaskTableModel getTaskTableModel(){
+        return taskTableModel;
     }
 
 }
