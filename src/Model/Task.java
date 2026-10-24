@@ -68,6 +68,4 @@ public class Task implements Printable{
         System.out.println(this.toString());
     }
 
-    public Object get() {
-    }
 }
