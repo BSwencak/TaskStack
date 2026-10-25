@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TaskListUI {
+public class TaskListUI extends JFrame {
     private final TaskController taskController;
     private JButton newButton;
     private JButton doneButton;
