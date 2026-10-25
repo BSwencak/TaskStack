@@ -17,11 +17,14 @@ public class TaskController implements ActionListener {
 
     public TaskController() {
         taskList = new TaskList();
+        taskTableModel = new TaskTableModel(taskList.getTaskList());
+
         taskListUI = new TaskListUI(this);
+        taskListUI.initComponents();
+        taskListUI.setVisible(true);
         taskUI = new TaskUI(this);
         addALButtons();
         taskUI.setVisible(true);
-        taskTableModel = new TaskTableModel(taskList.getTaskList());
     }
 
     public void addALButtons() {

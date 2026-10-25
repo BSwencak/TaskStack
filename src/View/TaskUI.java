@@ -30,7 +30,6 @@ public class TaskUI extends JFrame {
         currentSelectedRow = selectedRow;
         currentTask = taskController.getTask(selectedRow);
 
-        initComponents();
         parseTask();
     }
 
@@ -69,6 +68,8 @@ public class TaskUI extends JFrame {
 
 
     private JTextField taskTitle;
+    private JTextField taskSubtitle;
+    private JTextField taskDueDate;
     public JButton previousButton;
     public JButton newButton;
     public JButton nextButton;
