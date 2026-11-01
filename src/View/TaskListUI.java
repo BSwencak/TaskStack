@@ -9,13 +9,14 @@ import java.awt.event.ActionListener;
 
 public class TaskListUI extends JFrame {
     private final TaskController taskController;
-    private JButton newButton;
-    private JButton exitButton;
-    private JButton showDetailsButton;
+    public JButton newButton;
+    public JButton exitButton;
+    public JButton showDetailsButton;
     private JTable taskTable;
     private JPanel tablePanel;
     private JPanel buttonPanel;
     private JScrollPane tableScroller;
+    public JButton deleteButton;
 
     public TaskListUI(TaskController taskController) {
         this.taskController = taskController;
@@ -29,13 +30,15 @@ public class TaskListUI extends JFrame {
         taskTable.getColumnModel().getColumn(0).setPreferredWidth(25);
         taskTable.getColumnModel().getColumn(1).setPreferredWidth(50);
 
-        exitButton = new JButton("Done");
+        exitButton = new JButton("Exit");
         showDetailsButton = new JButton("Show Details");
         showDetailsButton.addActionListener(new DetailsButtonListener());
 
         newButton = new JButton("New");
+        deleteButton = new JButton("Delete");
         buttonPanel.add(newButton);
         buttonPanel.add(showDetailsButton);
+        buttonPanel.add(deleteButton);
         buttonPanel.add(exitButton);
 
         tableScroller = new JScrollPane(taskTable);
@@ -51,6 +54,17 @@ public class TaskListUI extends JFrame {
         this.getContentPane().add(tablePanel, BorderLayout.CENTER);
         this.setTitle("Task Stack");
 
+    }
+
+    public int getSelectedRow() {
+
+        int selectedTableRow = taskTable.getSelectedRow();
+
+        if(selectedTableRow < 0){
+            return -1;
+        }
+
+        return taskTable.convertRowIndexToModel(selectedTableRow);
     }
 
     public class DetailsButtonListener implements ActionListener {
@@ -84,17 +98,20 @@ public class TaskListUI extends JFrame {
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         tablePanel = new JPanel();
-        tablePanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 3, new Insets(0, 0, 0, 0), -1, -1));
+        tablePanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 4, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(tablePanel, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         newButton = new JButton();
         newButton.setText("New");
         tablePanel.add(newButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 1, false));
         exitButton = new JButton();
         exitButton.setText("Exit");
-        tablePanel.add(exitButton, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        tablePanel.add(exitButton, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         showDetailsButton = new JButton();
         showDetailsButton.setText("Show Details");
         tablePanel.add(showDetailsButton, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        deleteButton = new JButton();
+        deleteButton.setText("Delete");
+        tablePanel.add(deleteButton, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         buttonPanel = new JPanel();
         buttonPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(buttonPanel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));

@@ -3,107 +3,152 @@ package Controller;
 import Model.*;
 import View.*;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
-public class TaskController {
-
+public class TaskController implements ActionListener {
     private TaskList taskList;
-    private TaskListUI taskListUI;
     private TaskUI taskUI;
+    private TaskListUI taskListUI;
     private TaskTableModel taskTableModel;
+    private boolean creatingNewTask;
 
     public TaskController() {
-
         taskList = new TaskList();
         taskTableModel = new TaskTableModel(taskList.getTaskList());
 
         taskListUI = new TaskListUI(this);
         taskListUI.initComponents();
         taskListUI.setVisible(true);
+        addALButtons();
     }
 
-    public TaskTableModel getTaskTableModel() {
-        return taskTableModel;
+
+
+    public void addALButtons() {
+        taskListUI.newButton.addActionListener(this);
+        taskListUI.exitButton.addActionListener(this);
+        taskListUI.deleteButton.addActionListener(this);
     }
 
-    public ArrayList<Task> getTaskList() {
+    public ArrayList<Task> getTaskList(){
         return taskList.getTaskList();
     }
 
-    public Task getTask(int index) {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        Object obj = e.getSource();
+        if(obj == taskListUI.exitButton){
+            System.exit(0);
+        }
+
+        if (obj == taskListUI.newButton) {
+            taskUI = new TaskUI(this);
+
+            taskUI.backButton.addActionListener(this);
+            taskUI.saveButton.addActionListener(this);
+            taskUI.deleteButton.addActionListener(this);
+            creatingNewTask = true;
+            taskListUI.setVisible(false);
+            taskUI.setVisible(true);
+        }
+
+        if(obj == taskListUI.deleteButton){
+
+            int row = taskListUI.getSelectedRow();
+
+            if(row >= 0){
+
+                taskList.getTaskList().remove(row);
+
+                taskTableModel.fireTableDataChanged();
+            }
+        }
+
+
+
+        if(taskUI != null){
+
+            if(obj == taskUI.backButton){
+                taskUI.dispose();
+                taskListUI.setVisible(true);
+            }
+
+            if(obj == taskUI.deleteButton){
+                if (creatingNewTask) {
+                    return;
+                }
+
+                int index = taskUI.getCurrentSelectedRow();
+
+                taskList.getTaskList().remove(index);
+
+                taskTableModel.fireTableDataChanged();
+
+                taskUI.dispose();
+                taskListUI.setVisible(true);
+            }
+
+            if(obj == taskUI.saveButton){
+
+                if(creatingNewTask){
+
+                    Task task = new Task();
+
+                    task.setTitle(taskUI.getTaskTitle());
+                    task.setSubtitle(taskUI.getTaskSubtitle());
+                    task.setDueDate(taskUI.getTaskDueDate());
+                    task.setPriority(taskUI.getTaskPriority());
+                    task.setCategory(taskUI.getTaskCategory());
+
+                    taskList.getTaskList().add(task);
+
+                    creatingNewTask = false;
+
+                } else {
+
+                    int index = taskUI.getCurrentSelectedRow();
+
+                    Task task = taskList.getTaskList().get(index);
+
+                    task.setTitle(taskUI.getTaskTitle());
+                    task.setSubtitle(taskUI.getTaskSubtitle());
+                    task.setDueDate(taskUI.getTaskDueDate());
+                    task.setPriority(taskUI.getTaskPriority());
+                    task.setCategory(taskUI.getTaskCategory());
+                }
+
+                taskTableModel.fireTableDataChanged();
+
+                taskUI.dispose();
+                taskListUI.setVisible(true);
+            }
+        }
+    }
+
+    public TaskTableModel getTaskTableModel(){
+        return taskTableModel;
+    }
+
+    public void getTaskDetailUI(int selectedRow){
+        if (taskList.getTaskList().isEmpty()){
+            return;
+        }
+
+        taskUI = new TaskUI(this,selectedRow);
+
+        taskUI.backButton.addActionListener(this);
+        taskUI.saveButton.addActionListener(this);
+        taskUI.deleteButton.addActionListener(this);
+
+        taskListUI.setVisible(false);
+        taskUI.setVisible(true);
+    }
+
+    public Task getTask(int index){
         return taskList.getTaskList().get(index);
     }
 
-    // Open an existing task
-    public void getTaskDetailUI(int selectedRow) {
-
-        taskUI = new TaskUI(this, selectedRow);
-
-        taskListUI.setVisible(false);
-        taskUI.setVisible(true);
-    }
-
-    // Open a blank task form
-    public void getNewTaskUI() {
-
-        taskUI = new TaskUI(this);
-
-        taskListUI.setVisible(false);
-        taskUI.setVisible(true);
-    }
-
-    // Save changes to an existing task
-    public void updateTask(int index,
-                           String title,
-                           String subtitle,
-                           String description,
-                           String dueDate,
-                           String priority,
-                           String notes) {
-
-        Task task = taskList.getTaskList().get(index);
-
-        task.setTitle(title);
-        task.setSubtitle(subtitle);
-        task.setDescription(description);
-        task.setDueDate(dueDate);
-        task.setPriority(priority);
-        task.setNotes(notes);
-
-        taskTableModel.fireTableDataChanged();
-    }
-
-    // Add a new task
-    public void addTask(Task task) {
-
-        taskList.getTaskList().add(task);
-
-        taskTableModel.fireTableDataChanged();
-    }
-
-    // Delete a task
-    public void deleteTask(int index) {
-
-        if(taskList.getTaskList().size() > 0) {
-
-            taskList.getTaskList().remove(index);
-
-            taskTableModel.fireTableDataChanged();
-        }
-    }
-
-    // Return to list view
-    public void returnToList() {
-
-        if(taskUI != null) {
-            taskUI.dispose();
-        }
-
-        taskListUI.setVisible(true);
-    }
-
-    // Exit program
-    public void exitApplication() {
-        System.exit(0);
-    }
 }
