@@ -4,7 +4,7 @@ import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
 public class TaskTableModel extends AbstractTableModel {
-    private String[] columnNames = {"title", "subtitle", "description", "dueDate", "priority", "category", "notes"};
+    private String[] columnNames = {"Title", "Subtitle", "Due Date", "Priority", "Category"};
     private ArrayList<Task> taskList;
     public TaskTableModel(ArrayList<Task> newTaskList) {
         taskList = newTaskList;
@@ -16,18 +16,21 @@ public class TaskTableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 0;
+        return columnNames.length;
+    }
+
+    @Override
+    public String getColumnName(int col) {
+        return columnNames[col];
     }
 
     public Object getValueAt(int row, int col){
         switch(col){
             case 0: return (Object) taskList.get(row).getTitle();
             case 1: return (Object) taskList.get(row).getSubtitle();
-            case 2: return (Object) taskList.get(row).getDescription();
-            case 3: return (Object) taskList.get(row).getDueDate();
-            case 4: return (Object) taskList.get(row).getPriority();
-            case 5: return (Object) taskList.get(row).getCategory();
-            case 6: return (Object) taskList.get(row).getNotes();
+            case 2: return (Object) taskList.get(row).getDueDate();
+            case 3: return (Object) taskList.get(row).getPriority();
+            case 4: return (Object) taskList.get(row).getCategory();
             default: return null;
         }
     }

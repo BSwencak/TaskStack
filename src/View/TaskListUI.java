@@ -1,7 +1,7 @@
 package View;
 
 import Controller.TaskController;
-import Model.Task;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class TaskListUI extends JFrame {
     private final TaskController taskController;
     private JButton newButton;
-    private JButton doneButton;
+    private JButton exitButton;
     private JButton showDetailsButton;
     private JTable taskTable;
     private JPanel tablePanel;
@@ -29,26 +29,28 @@ public class TaskListUI extends JFrame {
         taskTable.getColumnModel().getColumn(0).setPreferredWidth(25);
         taskTable.getColumnModel().getColumn(1).setPreferredWidth(50);
 
-        doneButton = new JButton("Done");
+        exitButton = new JButton("Done");
         showDetailsButton = new JButton("Show Details");
         showDetailsButton.addActionListener(new DetailsButtonListener());
 
         newButton = new JButton("New");
         buttonPanel.add(newButton);
         buttonPanel.add(showDetailsButton);
-        buttonPanel.add(doneButton);
+        buttonPanel.add(exitButton);
 
         tableScroller = new JScrollPane(taskTable);
         taskTable.setFillsViewportHeight(true);
         tableScroller.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        tableScroller.setPreferredSize(new Dimension(350, 300));
+        tableScroller.setPreferredSize(new Dimension(550, 300));
         tablePanel.add(tableScroller);
 
-        this.setSize(500, 400);
+        this.setSize(600, 400);
         this.setLocationRelativeTo(null);
         this.setContentPane(new JPanel(new BorderLayout()));
         this.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
         this.getContentPane().add(tablePanel, BorderLayout.CENTER);
+        this.setTitle("Task Stack");
+
     }
 
     public class DetailsButtonListener implements ActionListener {
@@ -87,9 +89,9 @@ public class TaskListUI extends JFrame {
         newButton = new JButton();
         newButton.setText("New");
         tablePanel.add(newButton, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 1, false));
-        doneButton = new JButton();
-        doneButton.setText("Done");
-        tablePanel.add(doneButton, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        exitButton = new JButton();
+        exitButton.setText("Exit");
+        tablePanel.add(exitButton, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         showDetailsButton = new JButton();
         showDetailsButton.setText("Show Details");
         tablePanel.add(showDetailsButton, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
