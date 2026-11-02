@@ -22,11 +22,11 @@ public class TaskList {
 
     public void createTaskList(){
         for (int i=1; i<=5; i++){
-            task = new Task("Math "+i, " Subtitle", "Desc", "Due", "Prio","Cat","Notes");
+            task = new Task("Practice Problems "+i, " Subtitle", "Description", "11/02/2026", "High"," Math","Notes");
             taskList.add(task);
         }
         for (int i=1; i<=5; i++){
-            task = new Task("Science "+i, " Subtitle", "Desc", "Due", "Prio","Cat","Notes");
+            task = new Task("Lab Work "+i, " Subtitle", "Desc", "11/05/2026", "Medium","Science","Notes");
             taskList.add(task);
         }
     }

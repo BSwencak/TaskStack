@@ -5,28 +5,25 @@
 * Semester: Fall '26
 * Project Description: A productivity app where you can track your tasks, notes, 
 and calendar all-in-one with a customizable view
-## Current Assignment Name: 'M05-A01: Implementing a Simple MVC Application GUI'
-## Assignment Accomplishments - Created TaskUI, TaskList, and TaskController to display tasks and edit them in a UI
-* Created TaskUI with the swing drag and drop menu to add all my buttons, title, and textField to display the current task title
-* Within the TaskUI.java file, made all the button variables public to be controlled in the TaskController java class
-* Also added a constructor to be able to set proper parameters for the UI
-* Added functions to help get information pertaining to the tasks viewed in the UI like getCurrentTask
-* Instantiated all other variables needed for the UI to interact with the TaskController and TaskList
-* Created TaskList.java to have an ArrayList of premade Tasks to help check the functions of the project
-* Created TaskController.java which makes the buttons function but adding them all as action listeners and performing action based on the button that is pressed
-* Ensured that there are no errors and list cannot be fully deleted instead it leaves one blank entry always so the project doesn't error
-
-**APPLICATION CLASS:**    _'Main.java'_
-
-**MODEL CLASS:**          _'Task.java'_
-
-**CONTROLLER CLASS:**     _'TaskController.java'_
-
-**SECOND MODEL CLASS:**   _'TaskList.java'_
-
-**VIEW CLASS:**           _'TaskUI' - 'TaskUI,java' - 'TaskUI.form'_
+## Current Assignment Name: 'M06-A01: Implementing the List-Detail Pattern'
+## Assignment Accomplishments - Created and Updated files to implement new multi UI
+* Created TaskTableModel to give us our table of the task list for TaskListUI.java
+* Created TaskListUI to display our task list as a table with the help of TaskTableModel 
+  * Able to show details of the task bringing you to TaskUI.java for that specific task to see more details
+  * TaskListUI also allows you to create a new task, delete a task, or exit the program
+* Updated TaskUI to fit new project requirements
+  * Redid the UI to have all attributes of a Task to display update and change them
+  * Using TaskUI as the more detailed view of a task now instead
+* Updated TaskController to allow for functionality and view between both the TaskListUI and more detailed TaskUI
+  * Ensured all buttons functioned without error
+    * Can't delete a task that's being created
+    * Ensuring TaskUI is not null if it's going to check for any buttons being pressed for it
+  * Added a boolean to check if task was a new one being created
+    * Helped to check to not allow the deleting of a new task
+    * Changed the way a task was saved as well based on if it was being created or updated
+* Updated TaskList to give better examples of the task usage
 ## Running the Project
 These are instructions on how to run the project once loaded into IntelliJ.
 ### Steps
 Step-by-step instructions on how to run your application.
-1. Run 'Main.java' to see and test TaskUI
+1. Run 'Main.java' to see and test the UI

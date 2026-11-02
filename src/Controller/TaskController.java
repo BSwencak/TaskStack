@@ -21,10 +21,9 @@ public class TaskController implements ActionListener {
         taskListUI = new TaskListUI(this);
         taskListUI.initComponents();
         taskListUI.setVisible(true);
+
         addALButtons();
     }
-
-
 
     public void addALButtons() {
         taskListUI.newButton.addActionListener(this);
@@ -56,21 +55,14 @@ public class TaskController implements ActionListener {
         }
 
         if(obj == taskListUI.deleteButton){
-
             int row = taskListUI.getSelectedRow();
-
             if(row >= 0){
-
                 taskList.getTaskList().remove(row);
-
                 taskTableModel.fireTableDataChanged();
             }
         }
 
-
-
         if(taskUI != null){
-
             if(obj == taskUI.backButton){
                 taskUI.dispose();
                 taskListUI.setVisible(true);
@@ -80,13 +72,9 @@ public class TaskController implements ActionListener {
                 if (creatingNewTask) {
                     return;
                 }
-
                 int index = taskUI.getCurrentSelectedRow();
-
                 taskList.getTaskList().remove(index);
-
                 taskTableModel.fireTableDataChanged();
-
                 taskUI.dispose();
                 taskListUI.setVisible(true);
             }
@@ -108,7 +96,6 @@ public class TaskController implements ActionListener {
                     creatingNewTask = false;
 
                 } else {
-
                     int index = taskUI.getCurrentSelectedRow();
 
                     Task task = taskList.getTaskList().get(index);
