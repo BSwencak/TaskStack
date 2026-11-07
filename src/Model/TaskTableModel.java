@@ -4,7 +4,7 @@ import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
 public class TaskTableModel extends AbstractTableModel {
-    private String[] columnNames = {"Title", "Subtitle", "Due Date", "Priority", "Category"};
+    private String[] columnNames = {"Title", "Subtitle", "Due Date", "Priority", "Category","Completion"};
     private ArrayList<Task> taskList;
     public TaskTableModel(ArrayList<Task> newTaskList) {
         taskList = newTaskList;
@@ -31,6 +31,7 @@ public class TaskTableModel extends AbstractTableModel {
             case 2: return (Object) taskList.get(row).getDueDate();
             case 3: return (Object) taskList.get(row).getPriority();
             case 4: return (Object) taskList.get(row).getCategory();
+            case 5: return (Object) taskList.get(row).isCompleted();
             default: return null;
         }
     }

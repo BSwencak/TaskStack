@@ -32,10 +32,10 @@ public class TestInheritInterface {
 
     public static void testInterface(){
         Calendar c = new Calendar("24","September","2026","Weekly","All");
-        Task t = new Task("Math Homework","Finish problems 1-12","Description of Math Homework","09-24-2026","HIGH","Calc 100","Math Notes");
+        Task t = new Task("Math Homework","Finish problems 1-12","Description of Math Homework","09-24-2026","HIGH","Calc 100","Math Notes",false);
         ArrayList<Printable> printables = new ArrayList<>();
         printables.add(c);
-        printables.add(t);
+        printables.add((Printable) t);
         for (Printable p: printables){
             p.printSetup();
             p.print();

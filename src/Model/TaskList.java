@@ -23,11 +23,11 @@ public class TaskList implements Serializable {
 
     public void createTaskList(){
         for (int i=1; i<=5; i++){
-            task = new Task("Practice Problems "+i, " Subtitle", "Description", "11/02/2026", "High"," Math","Notes");
+            task = new Task("Practice Problems "+i, " Subtitle", "Description", "11/02/2026", "High"," Math","Notes",false);
             taskList.add(task);
         }
         for (int i=1; i<=5; i++){
-            task = new Task("Lab Work "+i, " Subtitle", "Desc", "11/05/2026", "Medium","Science","Notes");
+            task = new Task("Lab Work "+i, " Subtitle", "Desc", "11/05/2026", "Medium","Science","Notes",false);
             taskList.add(task);
         }
     }

@@ -13,9 +13,10 @@ public class Task implements Serializable {
     private String category;
     private String notes;
     private String banner;
+    private boolean completed;
 
     //Constructors
-    public Task(String title, String subtitle, String description, String dueDate, String priority, String category, String notes) {
+    public Task(String title, String subtitle, String description, String dueDate, String priority, String category, String notes, Boolean completed) {
         this.title = title;
         this.subtitle = subtitle;
         this.description = description;
@@ -23,9 +24,10 @@ public class Task implements Serializable {
         this.priority = priority;
         this.category = category;
         this.notes = notes;
+        this.completed = false;
     }
     public Task() {
-        this("title", "subtitle", "description", "dueDate", "priority", "category", "notes");
+        this("title", "subtitle", "description", "dueDate", "priority", "category", "notes", false);
         this.title = "title";
         this.subtitle = "subtitle";
         this.description = "description";
@@ -33,6 +35,7 @@ public class Task implements Serializable {
         this.priority = "priority";
         this.category = "category";
         this.notes = "notes";
+        this.completed = false;
     }
 
     //Getters
@@ -43,6 +46,7 @@ public class Task implements Serializable {
     public String getPriority() {return priority;}
     public String getCategory() {return category;}
     public String getNotes() {return notes;}
+    public boolean isCompleted() {return completed;}
 
     //Setters
     public void setTitle(String title) {this.title = title;}
@@ -52,6 +56,7 @@ public class Task implements Serializable {
     public void setPriority(String priority) {this.priority = priority;}
     public void setCategory(String category) {this.category = category;}
     public void setNotes(String notes) {this.notes = notes;}
+    public void setCompleted(Boolean completed) {this.completed = completed;}
 
     //To String
     @Override
