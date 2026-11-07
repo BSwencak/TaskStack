@@ -56,6 +56,16 @@ public class TaskListUI extends JFrame {
         this.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
         this.getContentPane().add(tablePanel, BorderLayout.CENTER);
         this.setTitle("Task Stack");
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                taskController.saveData();
+
+                dispose();
+                System.exit(0);
+            }
+        });
 
     }
 

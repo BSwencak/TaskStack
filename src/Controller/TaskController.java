@@ -49,12 +49,16 @@ public class TaskController implements ActionListener {
         return taskList;
     }
 
+    public void saveData(){
+        persistenceCntl.writeTaskList(taskList);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
         Object obj = e.getSource();
         if(obj == taskListUI.exitButton){
-            persistenceCntl.writeTaskList(taskList);
+            saveData();
 
             System.exit(0);
         }
