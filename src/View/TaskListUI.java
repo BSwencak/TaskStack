@@ -28,7 +28,7 @@ public class TaskListUI extends JFrame {
         buttonPanel = new JPanel(new GridLayout(1, 4));
 
         taskTable = new JTable(taskController.getTaskTableModel());
-        taskTable.getColumnModel().getColumn(0).setPreferredWidth(25);
+        taskTable.getColumnModel().getColumn(0).setPreferredWidth(100);
         taskTable.getColumnModel().getColumn(1).setPreferredWidth(50);
 
         exitButton = new JButton("Exit");
