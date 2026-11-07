@@ -104,6 +104,7 @@ public class TaskController implements ActionListener {
                     task.setDueDate(taskUI.getTaskDueDate());
                     task.setPriority(taskUI.getTaskPriority());
                     task.setCategory(taskUI.getTaskCategory());
+                    task.setCompleted(taskUI.isCompleted());
 
                     taskList.getTaskList().add(task);
 
@@ -119,6 +120,7 @@ public class TaskController implements ActionListener {
                     task.setDueDate(taskUI.getTaskDueDate());
                     task.setPriority(taskUI.getTaskPriority());
                     task.setCategory(taskUI.getTaskCategory());
+                    task.setCompleted(taskUI.isCompleted());
                 }
 
                 taskTableModel.fireTableDataChanged();

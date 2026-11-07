@@ -24,6 +24,28 @@ public class TaskTableModel extends AbstractTableModel {
         return columnNames[col];
     }
 
+    @Override
+    public Class<?> getColumnClass(int col) {
+        if (col == 5) {
+            return Boolean.class;
+        }
+        return String.class;
+    }
+
+    @Override
+    public boolean isCellEditable(int row, int col) {
+        return col == 5;
+    }
+
+    @Override
+    public void setValueAt(Object value, int row, int col) {
+        if (col == 5) {
+            taskList.get(row).setCompleted((Boolean)value);
+        }
+
+        fireTableCellUpdated(row, col);
+    }
+
     public Object getValueAt(int row, int col){
         switch(col){
             case 0: return (Object) taskList.get(row).getTitle();

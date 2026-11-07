@@ -44,10 +44,10 @@ public class TaskListUI extends JFrame {
         tableScroller = new JScrollPane(taskTable);
         taskTable.setFillsViewportHeight(true);
         tableScroller.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        tableScroller.setPreferredSize(new Dimension(550, 300));
+        tableScroller.setPreferredSize(new Dimension(900, 350));
         tablePanel.add(tableScroller);
 
-        this.setSize(600, 400);
+        this.setSize(1050, 400);
         this.setLocationRelativeTo(null);
         this.setContentPane(new JPanel(new BorderLayout()));
         this.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
