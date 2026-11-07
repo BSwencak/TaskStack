@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class TaskList {
+public class TaskList implements Serializable {
     private Task task;
     public ArrayList<Task> taskList = new ArrayList<>();
 

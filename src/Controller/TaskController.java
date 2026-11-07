@@ -13,9 +13,17 @@ public class TaskController implements ActionListener {
     private TaskListUI taskListUI;
     private TaskTableModel taskTableModel;
     private boolean creatingNewTask;
+    private PersistenceCntl persistenceCntl;
 
     public TaskController() {
-        taskList = new TaskList();
+        persistenceCntl = new PersistenceCntl();
+
+        taskList = persistenceCntl.readTaskList();
+
+        if(taskList == null){
+            taskList = new TaskList();
+        }
+
         taskTableModel = new TaskTableModel(taskList.getTaskList());
 
         taskListUI = new TaskListUI(this);
@@ -35,11 +43,17 @@ public class TaskController implements ActionListener {
         return taskList.getTaskList();
     }
 
+    public TaskList getTaskListObject() {
+        return taskList;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
         Object obj = e.getSource();
         if(obj == taskListUI.exitButton){
+            persistenceCntl.writeTaskList(taskList);
+
             System.exit(0);
         }
 

@@ -1,6 +1,8 @@
 package Model;
 
-public class Task implements Printable{
+import java.io.Serializable;
+
+public class Task implements Serializable {
 
     //Attributes
     private String title;
