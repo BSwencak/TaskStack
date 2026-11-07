@@ -14,6 +14,7 @@ public class TaskController implements ActionListener {
     private TaskTableModel taskTableModel;
     private boolean creatingNewTask;
     private PersistenceCntl persistenceCntl;
+    private boolean showCompleted = true;
 
     public TaskController() {
         persistenceCntl = new PersistenceCntl();
@@ -37,6 +38,7 @@ public class TaskController implements ActionListener {
         taskListUI.newButton.addActionListener(this);
         taskListUI.exitButton.addActionListener(this);
         taskListUI.deleteButton.addActionListener(this);
+        taskListUI.showCompletedButton.addActionListener(this);
     }
 
     public ArrayList<Task> getTaskList(){
@@ -74,6 +76,20 @@ public class TaskController implements ActionListener {
                 taskList.getTaskList().remove(row);
                 taskTableModel.fireTableDataChanged();
             }
+        }
+
+        if (obj == taskListUI.showCompletedButton){
+            showCompleted = !showCompleted;
+
+            if(showCompleted){
+                taskListUI.showCompletedButton.setText("Hide Completed");
+            }else{
+                taskListUI.showCompletedButton.setText("Show Completed");
+            }
+
+            taskTableModel.setShowCompleted(showCompleted);
+            taskTableModel.fireTableDataChanged();
+
         }
 
         if(taskUI != null){
