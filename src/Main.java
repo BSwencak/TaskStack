@@ -3,7 +3,7 @@ import Controller.TaskController;
 public class Main {
 
     public static void main(String[] args) {
-        TaskController taskController = new TaskController();
+        new TaskController();
     }
 }
 

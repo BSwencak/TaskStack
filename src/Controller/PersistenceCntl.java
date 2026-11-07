@@ -19,11 +19,7 @@ public class PersistenceCntl {
 
             ois.close();
 
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (IOException e){
-            e.printStackTrace();
-        } catch (ClassNotFoundException e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -39,7 +35,7 @@ public class PersistenceCntl {
             oos.writeObject(taskList);
 
             oos.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
