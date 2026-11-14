@@ -3,8 +3,8 @@ package Model;
 import java.time.LocalDate;
 
 public class TaskInDueDateList {
-    private String title;
-    private LocalDate dueDate;
+    private final String title;
+    private final LocalDate dueDate;
 
     public TaskInDueDateList(String title, LocalDate dueDate){
         this.title = title;

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 
 public class DueDateList {
-    private LinkedList<TaskInDueDateList> tasks;
+    private final LinkedList<TaskInDueDateList> tasks;
 
     public DueDateList(){
         tasks = new LinkedList<>();
