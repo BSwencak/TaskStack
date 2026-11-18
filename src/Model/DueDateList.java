@@ -12,7 +12,7 @@ public class DueDateList {
 
         buildTestData();
 
-        System.out.println("========= LinkedList items sorted by attribute: Due Date =========");
+        System.out.println("========= LinkedList items/tasks sorted by attribute: Due Date =========");
 
         printList();
     }

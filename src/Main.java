@@ -10,7 +10,7 @@ public class Main {
         DueDateList dueList = new DueDateList();
 
 
-        System.out.println("Adding Item: Doctors Appointment\n");
+        System.out.println("Adding Task: Doctors Appointment\n");
         dueList.addItem(
                 new TaskInDueDateList(
                         "Doctors Appointment",
@@ -20,12 +20,12 @@ public class Main {
 
         dueList.printList();
 
-        System.out.println("Removing Item: Project\n");
+        System.out.println("Removing Task: Project\n");
         dueList.removeItem("Project");
 
         dueList.printList();
 
-        System.out.println("Getting Item: Java Assignment\n");
+        System.out.println("Getting Task: Java Assignment\n");
         System.out.println(
                 dueList.getItem("Java Assignment")
         );
