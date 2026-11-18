@@ -6,7 +6,7 @@
 * Project Description: A productivity app where you can track your tasks, notes, 
 and calendar all-in-one with a customizable view
 ## Current Assignment Name: 'M08-A01: Implementing a LinkedList'
-## Assignment Accomplishments - Added 2 classes to create a functional DueDate LinkedList
+## Assignment Accomplishments - Added 2 classes to create a functional DueDate LinkedList and updated Main to display the functionality of the LinkedList
 * Created 'TaskInDueDateList.java'
   * Added attributes for what the task would display (title & dueDate)
   * Added getters for the title and dueDate
