@@ -12,7 +12,7 @@ public class DueDateList {
 
         buildTestData();
 
-        System.out.println("========= LinkedList items sorted by attribute: Due Date =====");
+        System.out.println("========= LinkedList items sorted by attribute: Due Date =========");
 
         printList();
     }
@@ -29,38 +29,38 @@ public class DueDateList {
 
         addItem(new TaskInDueDateList(
                 "Math Homework",
-                LocalDate.of(2026,11,15)));
+                LocalDate.of(2026,12,15)));
 
         addItem(new TaskInDueDateList(
                 "Laundry",
-                LocalDate.of(2026,11,18)));
+                LocalDate.of(2026,11,28)));
 
         addItem(new TaskInDueDateList(
-                "Study Java",
+                "Study for Test",
+                LocalDate.of(2026,12,11)));
+
+        addItem(new TaskInDueDateList(
+                "Project",
+                LocalDate.of(2026,12,2)));
+
+        addItem(new TaskInDueDateList(
+                "Update Resume",
+                LocalDate.of(2026,12,6)));
+
+        addItem(new TaskInDueDateList(
+                "Apply to Jobs",
+                LocalDate.of(2027,1,11)));
+
+        addItem(new TaskInDueDateList(
+                "Java Assignment",
                 LocalDate.of(2026,11,25)));
 
         addItem(new TaskInDueDateList(
-                "Project Report",
-                LocalDate.of(2026,11,20)));
+                "English Homework",
+                LocalDate.of(2026,11,26)));
 
         addItem(new TaskInDueDateList(
-                "Pay Bills",
-                LocalDate.of(2026,11,17)));
-
-        addItem(new TaskInDueDateList(
-                "Clean Room",
-                LocalDate.of(2026,11,22)));
-
-        addItem(new TaskInDueDateList(
-                "Gym",
-                LocalDate.of(2026,11,16)));
-
-        addItem(new TaskInDueDateList(
-                "Buy Groceries",
-                LocalDate.of(2026,11,19)));
-
-        addItem(new TaskInDueDateList(
-                "Call Mom",
+                "Hangout with Friends",
                 LocalDate.of(2026,11,23)));
 
         addItem(new TaskInDueDateList(
@@ -102,6 +102,7 @@ public class DueDateList {
                 return;
             }
         }
+
         tasks.add(newTask);
     }
 

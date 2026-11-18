@@ -13,22 +13,22 @@ public class Main {
         dueList.addItem(
                 new TaskInDueDateList(
                         "Doctors Appointment",
-                        LocalDate.of(2026,11,21)
+                        LocalDate.of(2026,12,8)
                 )
         );
 
         dueList.printList();
 
-        System.out.println("Removing Item: Buy Groceries");
+        System.out.println("Removing Item: Project");
 
-        dueList.removeItem("Buy Groceries");
+        dueList.removeItem("Project");
 
         dueList.printList();
 
-        System.out.println("Getting Item: Study Java");
+        System.out.println("Getting Item: Java Assignment");
 
         System.out.println(
-                dueList.getItem("Study Java")
+                dueList.getItem("Java Assignment")
         );
 
         System.out.println("\n=====================\n");
