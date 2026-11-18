@@ -6,10 +6,11 @@ import java.time.LocalDate;
 public class Main {
 
     public static void main(String[] args) {
+
         DueDateList dueList = new DueDateList();
 
-        System.out.println("Adding Item: Doctors Appointment");
 
+        System.out.println("Adding Item: Doctors Appointment\n");
         dueList.addItem(
                 new TaskInDueDateList(
                         "Doctors Appointment",
@@ -19,19 +20,19 @@ public class Main {
 
         dueList.printList();
 
-        System.out.println("Removing Item: Project");
-
+        System.out.println("Removing Item: Project\n");
         dueList.removeItem("Project");
 
         dueList.printList();
 
-        System.out.println("Getting Item: Java Assignment");
-
+        System.out.println("Getting Item: Java Assignment\n");
         System.out.println(
                 dueList.getItem("Java Assignment")
         );
 
         System.out.println("\n=====================\n");
+
+        dueList.printList();
     }
 }
 
